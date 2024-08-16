@@ -12,7 +12,8 @@ COPY src ./src
 
 RUN bun install --production --ignore-scripts
 
-CMD bun start
+#CMD bun start
+CMD bun run --watch src/index.ts
 HEALTHCHECK --interval=10s --timeout=20s --retries=10 CMD wget localhost:8080 -q -O - > /dev/null 2>&1
 
 LABEL org.opencontainers.image.source="https://github.com/taskforcesh/bullmq-proxy"
